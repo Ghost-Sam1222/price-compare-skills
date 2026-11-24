@@ -68,6 +68,17 @@ Agent 会按 `SKILL.md` 的流程走：找爆料 → 核验评论/时效 → 查
 
 详见 `skills/price-compare-personal/references/risk-control.md`。
 
+## 已知限制
+
+- **抖音商城**：网页端只有 App 下载页（`mall.douyin.com`），`douyin.com/mall`、`/shop`、`haohuo` 均为 404/壳页；不接自动搜索，只能手动看分享链接。
+- **拼多多**：`search` 需要登录态；`detail` 子命令不存在，价格只从 `search` 的 `price` / `groupPrice` 拿。
+- **唯品会**：搜索需登录；未登录会 302 到 `passport.vip.com/login`，适配器抛 `AuthRequiredError`。
+- **1688**：需登录，风控可能返回 `Navigation rejected`，遇到就停。
+- **闲鱼**：只适合急用现货/优惠券；蹲漏价请用 ai-goofish-monitor。
+- **快手 / 苏宁 / 美团 / 抖省省**：没有商品搜索适配器；美团/抖省省走什么值得买爆料。
+- **定时任务**：无 GUI session 时浏览器扩展桥不可用，不要承诺全自动比价。
+- **价格随账号变化**：PLUS / 88VIP / 百亿补贴 / 新人券，表里必须标账号条件。
+
 ## 许可
 
 MIT，见 [LICENSE](LICENSE)。第三方项目与灵感来源见 [NOTICE.md](NOTICE.md)。
